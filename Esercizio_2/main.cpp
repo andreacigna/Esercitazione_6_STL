@@ -9,7 +9,7 @@ using namespace SortLibrary;
 
 int main(int argc, char *argv[])
 {
-    vector<int> vectorNumber = {1,4,2,3};
+    vector<int> vectorNumber;
 
     for(int i = 1; i < argc; i++)
     {
