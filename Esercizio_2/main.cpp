@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
     vector<int> vectorNumber;
 
-    for(int i = 1; i < argc; i++)
+    for(int i = 0; i < argc; i++)
     {
          vectorNumber.push_back(atoi(argv[i])); // si memorizza dalla command-line
     }
@@ -45,8 +45,8 @@ int main(int argc, char *argv[])
         BubbleSort(v2);
         chrono::steady_clock::time_point BubbleSort_end = chrono::steady_clock::now();
 
-        double timeElapsedMS = chrono::duration_cast<chrono::nanoseconds>(MergeSort_end-MergeSort_begin).count();
-        double timeElapsedBS = chrono::duration_cast<chrono::nanoseconds>(BubbleSort_end-BubbleSort_begin).count();
+        double timeElapsedMS = chrono::duration_cast<chrono::microseconds>(MergeSort_end-MergeSort_begin).count();
+        double timeElapsedBS = chrono::duration_cast<chrono::microseconds>(BubbleSort_end-BubbleSort_begin).count();
 
         meanTimeElapsedMS += timeElapsedMS;
         meanTimeElapsedBS += timeElapsedBS;
@@ -57,6 +57,9 @@ int main(int argc, char *argv[])
 
     cout << "Il tempo medio per il MergeSort è pari a : " << meanTimeElapsedMS << endl;
     cout << "Il tempo medio per il BubbleSort è pari a : " << meanTimeElapsedBS << endl;
+
+    cout << "\n" << "Si nota come per vettori piccoli il BubbleSort è più veloce mentre"
+            " per vettori di dimensione maggiore il MergeSort è notevolmente più efficiente" << endl;
 
     return 0;
 }
